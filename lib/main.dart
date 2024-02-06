@@ -1,3 +1,6 @@
+import 'package:eco_gene_app/screens/bluetooth.dart';
+import 'package:eco_gene_app/screens/informationScreen.dart';
+import 'package:eco_gene_app/screens/qr1.dart';
 import 'package:eco_gene_app/screens/select.dart';
 import 'package:eco_gene_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SelectionScreen(),
+      home: BluetoothScanPage(),
     );
   }
 }

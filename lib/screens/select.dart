@@ -97,7 +97,7 @@ class _SelectionScreenState extends State<SelectionScreen> {
                   materials[index],
                   style: GoogleFonts.poppins(
                     fontSize: 16,
-                    color: Color.fromRGBO(
+                    color: const Color.fromRGBO(
                       51,
                       51,
                       51,

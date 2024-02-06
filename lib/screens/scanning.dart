@@ -1,49 +1,62 @@
+import 'package:eco_gene_app/constant/button.dart';
+import 'package:eco_gene_app/screens/select.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+class QRScannerScreen extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _QRScannerScreenState createState() => _QRScannerScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _QRScannerScreenState extends State<QRScannerScreen> {
+  late QRViewController controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  QRViewController? controller;
 
   @override
   void dispose() {
-    controller?.dispose();
+    controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    var height = size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Scanning'),
+        title: Text('QR Code Scanner'),
       ),
-      body: Stack(
+      body: Column(
         children: [
-          Positioned.fill(
+          Center(
             child: Container(
-              decoration: ShapeDecoration(
-                shape: QrScannerOverlayShape(
-                  cutOutHeight: height / 3,
-                  borderColor: Colors.black,
-                  borderRadius: 4,
-                  borderLength: 20,
-                  borderWidth: 3.0,
-                  cutOutSize: 20,
-                ),
+              width: 250,
+              height: 250,
+              child: QRView(
+                key: qrKey,
+                onQRViewCreated: _onQRViewCreated,
               ),
             ),
+          ),
+          CustomButton(
+            buttonText: "Done",
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SelectionScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
     );
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      // Handle scanned QR code data
+      print(scanData);
+    });
   }
 }

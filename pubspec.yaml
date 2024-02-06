@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
   qr_code_scanner: ^1.0.1
+  flutter_blue_plus: ^1.31.13
+  flutter_blue: ^0.8.0
 
 dev_dependencies:
   flutter_test:
