@@ -1,5 +1,6 @@
 import 'package:eco_gene_app/constant/button.dart';
 import 'package:eco_gene_app/constant/color.dart';
+import 'package:eco_gene_app/constant/customText.dart';
 import 'package:eco_gene_app/screens/connection.dart';
 import 'package:eco_gene_app/screens/onbaording2.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class onBoarding1 extends StatelessWidget {
                       decoration: TextDecoration.underline,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         color: AppColors.theme,
                       ),
                     ),
@@ -54,24 +55,18 @@ class onBoarding1 extends StatelessWidget {
             SizedBox(
               height: height * 0.05,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Welcome to ',
-                  style: GoogleFonts.poppins(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    textStyle: const TextStyle(color: AppColors.theme),
-                  ),
+                CustomText(
+                  text: 'Welcome to',
+                  fontSize: 24,
+                  FntWeight: FontWeight.w600,
                 ),
-                Text(
-                  'EcoGene',
-                  style: GoogleFonts.poppins(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w600,
-                    textStyle: const TextStyle(color: AppColors.theme),
-                  ),
+                CustomText(
+                  text: 'EcoGene',
+                  fontSize: 32,
+                  FntWeight: FontWeight.w600,
                 ),
               ],
             ),
@@ -90,7 +85,7 @@ class onBoarding1 extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Center(

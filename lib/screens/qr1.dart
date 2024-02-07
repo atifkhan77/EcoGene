@@ -16,14 +16,14 @@ class Qr1 extends StatelessWidget {
           child: Row(children: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
             ),
             Text(
               'Scan your QR Code',
               style: GoogleFonts.poppins(
                   color: AppColors.theme,
                   fontSize: 24,
-                  textStyle: TextStyle(fontWeight: FontWeight.w600)),
+                  textStyle: const TextStyle(fontWeight: FontWeight.w600)),
             ),
           ]),
         ),

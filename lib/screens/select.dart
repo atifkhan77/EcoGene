@@ -1,5 +1,6 @@
 import 'package:eco_gene_app/constant/button.dart';
 import 'package:eco_gene_app/constant/color.dart';
+import 'package:eco_gene_app/constant/customText.dart';
 import 'package:eco_gene_app/screens/ready.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,13 +32,10 @@ class _SelectionScreenState extends State<SelectionScreen> {
           SizedBox(
             height: height * 0.05,
           ),
-          Text(
-            'Select Bucket Material',
-            style: GoogleFonts.poppins(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              textStyle: const TextStyle(color: AppColors.theme),
-            ),
+          const CustomText(
+            text: 'Select Bucket Material',
+            fontSize: 24,
+            FntWeight: FontWeight.w600,
           ),
           SizedBox(
             height: height * 0.015,
@@ -79,14 +77,14 @@ class _SelectionScreenState extends State<SelectionScreen> {
       padding: const EdgeInsets.all(8.0),
       child: ListView.builder(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(), // Prevent scrolling
+        physics: const NeverScrollableScrollPhysics(), // Prevent scrolling
         itemCount: materials.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(top: 8.0, left: 20, right: 20),
             child: Container(
               decoration: BoxDecoration(
-                color: Color.fromRGBO(245, 245, 245, 1),
+                color: const Color.fromRGBO(245, 245, 245, 1),
                 border: Border.all(
                   color: AppColors.checked,
                 ),

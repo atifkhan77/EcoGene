@@ -1,5 +1,6 @@
 import 'package:eco_gene_app/constant/button.dart';
 import 'package:eco_gene_app/constant/color.dart';
+import 'package:eco_gene_app/constant/customText.dart';
 import 'package:eco_gene_app/screens/instructions2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,31 +28,25 @@ class instructionScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Center(
-              child: Text(
-                'Instructions',
-                style: GoogleFonts.poppins(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  textStyle: const TextStyle(color: AppColors.theme),
-                ),
+            const Center(
+              child: CustomText(
+                text: 'Instructions',
+                fontSize: 24,
+                FntWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Text(
-                'Things to add in the bucket',
-                style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  textStyle: const TextStyle(color: AppColors.theme),
-                ),
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: CustomText(
+                text: 'Things to add in the bucket',
+                fontSize: 18,
+                FntWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -67,7 +62,7 @@ class instructionScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -117,7 +112,7 @@ class instructionScreen extends StatelessWidget {
         title,
         style: GoogleFonts.poppins(
             fontSize: 16,
-            color: Color.fromRGBO(34, 34, 34, 1),
+            color: const Color.fromRGBO(34, 34, 34, 1),
             fontWeight: FontWeight.w500),
       ),
     );

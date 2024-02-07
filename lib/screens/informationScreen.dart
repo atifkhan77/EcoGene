@@ -214,7 +214,7 @@ class _InformationScreenState extends State<InformationScreen> {
               buttonText: "Done",
               onTap: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
           ],

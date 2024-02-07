@@ -26,7 +26,7 @@ class onBoarding2 extends StatelessWidget {
             ),
             Container(
               height: 148,
-              padding: EdgeInsets.only(left: 20, right: 40),
+              padding: const EdgeInsets.only(left: 20, right: 40),
               child: Column(
                 children: [
                   Text(
@@ -74,7 +74,7 @@ class onBoarding2 extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Center(

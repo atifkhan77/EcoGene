@@ -1,7 +1,8 @@
 import 'package:eco_gene_app/constant/button.dart';
 import 'package:eco_gene_app/screens/select.dart';
 import 'package:flutter/material.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class QRScannerScreen extends StatefulWidget {
   @override
@@ -9,13 +10,30 @@ class QRScannerScreen extends StatefulWidget {
 }
 
 class _QRScannerScreenState extends State<QRScannerScreen> {
-  late QRViewController controller;
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  String _scanResult = 'Unknown';
 
   @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
+    // Call the method to start scanning when the screen is loaded
+    _startScanning();
+  }
+
+  Future<void> _startScanning() async {
+    String barcodeScanRes;
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+      debugPrint(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      _scanResult = barcodeScanRes;
+    });
   }
 
   @override
@@ -25,38 +43,27 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
         title: Text('QR Code Scanner'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Container(
-              width: 250,
-              height: 250,
-              child: QRView(
-                key: qrKey,
-                onQRViewCreated: _onQRViewCreated,
-              ),
+            child: Text(
+              'Scanned Barcode: $_scanResult',
+              style: TextStyle(fontSize: 20.0),
             ),
           ),
+          Spacer(), // Add a spacer to push the button to the bottom
           CustomButton(
-            buttonText: "Done",
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SelectionScreen(),
-                ),
-              );
-            },
-          ),
+              buttonText: "Stop",
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SelectionScreen(),
+                  ),
+                );
+              }),
         ],
       ),
     );
-  }
-
-  void _onQRViewCreated(QRViewController controller) {
-    this.controller = controller;
-    controller.scannedDataStream.listen((scanData) {
-      // Handle scanned QR code data
-      print(scanData);
-    });
   }
 }

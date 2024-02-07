@@ -1,7 +1,6 @@
-import 'package:eco_gene_app/constant/color.dart';
+import 'package:eco_gene_app/constant/customText.dart';
 import 'package:eco_gene_app/screens/instruction.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
 class ReadyBucket extends StatefulWidget {
@@ -20,13 +19,13 @@ class _ReadyBucketState extends State<ReadyBucket> {
   }
 
   startTime() async {
-    var duration = new Duration(seconds: 3);
-    return new Timer(duration, route);
+    var duration = const Duration(seconds: 3);
+    return Timer(duration, route);
   }
 
   route() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => instructionScreen()));
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => const instructionScreen()));
   }
 
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class _ReadyBucketState extends State<ReadyBucket> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
+          const Center(
             child: Icon(
               Icons.check_circle_outline,
               color: Color.fromRGBO(54, 151, 99, 1),
@@ -46,13 +45,10 @@ class _ReadyBucketState extends State<ReadyBucket> {
           SizedBox(
             height: height * 0.05,
           ),
-          Text(
-            'Your Bucket is Ready',
-            style: GoogleFonts.poppins(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              textStyle: const TextStyle(color: AppColors.theme),
-            ),
+          const CustomText(
+            text: 'Your Bucket is Ready',
+            fontSize: 24,
+            FntWeight: FontWeight.w600,
           ),
         ],
       ),

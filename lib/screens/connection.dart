@@ -1,9 +1,11 @@
+import 'package:eco_gene_app/constant/button.dart';
 import 'package:eco_gene_app/constant/color.dart';
 import 'package:eco_gene_app/screens/qr1.dart';
+import 'package:eco_gene_app/screens/wifi.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-enum ConnectionMethod { barcodeScanner, bluetooth }
+enum ConnectionMethod { barcodeScanner, Wifi }
 
 class connection extends StatefulWidget {
   const connection({super.key});
@@ -59,9 +61,9 @@ class _connectionState extends State<connection> {
                   'Scan with QR code',
                 ),
                 _buildMethodOption(
-                  ConnectionMethod.bluetooth,
-                  Icons.bluetooth,
-                  'Scan with Bluetooth',
+                  ConnectionMethod.Wifi,
+                  Icons.wifi,
+                  'Connect with Wifi',
                 ),
                 GestureDetector(
                   onTap: () {
@@ -69,34 +71,23 @@ class _connectionState extends State<connection> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Qr1(),
+                          builder: (context) => const Qr1(),
                         ),
                       );
                       print('Connecting using barcode scanner');
-                    } else if (_selectedMethod == ConnectionMethod.bluetooth) {
-                      // Connect using Bluetooth
-                      print('Connecting using Bluetooth');
+                    } else if (_selectedMethod == ConnectionMethod.Wifi) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Wifi_connect(),
+                        ),
+                      );
+                      print('Connecting using Wifi');
                     }
                   },
-                  child: Container(
-                    margin: EdgeInsets.only(
-                        left: 20, right: 20, top: height * 0.09, bottom: 20),
-                    height: 48,
-                    width: 342,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: AppColors.theme,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Next",
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          textStyle: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ),
+                  child: CustomButton(
+                    buttonText: 'Next',
+                    onTap: () {},
                   ),
                 ),
               ],
@@ -120,17 +111,17 @@ class _connectionState extends State<connection> {
         child: Container(
           height: 78,
           decoration: BoxDecoration(
-            color: Color.fromRGBO(245, 245, 245, 1),
+            color: const Color.fromRGBO(245, 245, 245, 1),
             border: Border.all(
               color: _selectedMethod == method
-                  ? Color.fromRGBO(2, 71, 34, 1)
-                  : Color.fromRGBO(122, 122, 122, 1),
+                  ? const Color.fromRGBO(2, 71, 34, 1)
+                  : const Color.fromRGBO(122, 122, 122, 1),
               width: 2.0,
             ),
             borderRadius: BorderRadius.circular(12.0),
           ),
-          padding: EdgeInsets.only(left: 16.0),
-          margin: EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.only(left: 16.0),
+          margin: const EdgeInsets.symmetric(vertical: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -140,13 +131,13 @@ class _connectionState extends State<connection> {
                 children: [
                   Icon(
                     icon,
-                    color: Color.fromRGBO(2, 71, 34, 1),
+                    color: const Color.fromRGBO(2, 71, 34, 1),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
                     text,
                     style: GoogleFonts.poppins(
-                        color: Color.fromRGBO(51, 51, 51, 1)),
+                        color: const Color.fromRGBO(51, 51, 51, 1)),
                   ),
                 ],
               ),
