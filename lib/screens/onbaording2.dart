@@ -78,7 +78,7 @@ class onBoarding2 extends StatelessWidget {
               height: 10,
             ),
             Center(
-              child: Image.asset('assets/sliders2.png'),
+              child: Image.asset('assets/Sliders2.png'),
             ),
             CustomButton(
               onTap: () {

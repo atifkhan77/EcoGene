@@ -34,7 +34,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               child: Text(
                 widget.text,
                 style: GoogleFonts.poppins(
-                  color: Color.fromRGBO(34, 34, 34, 1),
+                  color: const Color.fromRGBO(34, 34, 34, 1),
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
@@ -50,12 +50,12 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
                   border: Border.all(
-                    color: Color.fromRGBO(2, 71, 34, 1),
+                    color: const Color.fromRGBO(2, 71, 34, 1),
                     width: 3.0,
                   ),
                 ),
                 child: _isChecked
-                    ? Icon(
+                    ? const Icon(
                         weight: 500,
                         Icons.check,
                         size: 18.0,
@@ -64,7 +64,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
                     : null,
               ),
             ),
-            SizedBox(width: 8.0),
+            const SizedBox(width: 8.0),
           ],
         ),
       ),

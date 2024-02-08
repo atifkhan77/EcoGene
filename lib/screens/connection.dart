@@ -65,7 +65,8 @@ class _connectionState extends State<connection> {
                   Icons.wifi,
                   'Connect with Wifi',
                 ),
-                GestureDetector(
+                CustomButton(
+                  buttonText: 'Next',
                   onTap: () {
                     if (_selectedMethod == ConnectionMethod.barcodeScanner) {
                       Navigator.push(
@@ -85,10 +86,6 @@ class _connectionState extends State<connection> {
                       print('Connecting using Wifi');
                     }
                   },
-                  child: CustomButton(
-                    buttonText: 'Next',
-                    onTap: () {},
-                  ),
                 ),
               ],
             ),
