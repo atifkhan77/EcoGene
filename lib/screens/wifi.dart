@@ -10,6 +10,10 @@ class Wifi_connect extends StatefulWidget {
 class _Wifi_connectState extends State<Wifi_connect> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      body: Column(
+        children: [],
+      ),
+    );
   }
 }

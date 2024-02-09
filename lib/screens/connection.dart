@@ -63,7 +63,7 @@ class _connectionState extends State<connection> {
                 _buildMethodOption(
                   ConnectionMethod.Wifi,
                   Icons.wifi,
-                  'Connect with Wifi',
+                  'Search nearby Device',
                 ),
                 CustomButton(
                   buttonText: 'Next',

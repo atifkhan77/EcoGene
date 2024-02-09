@@ -43,12 +43,13 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
         title: Text('QR Code Scanner'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: Text(
               'Scanned Barcode: $_scanResult',
-              style: TextStyle(fontSize: 20.0),
+              style: const TextStyle(fontSize: 20.0),
             ),
           ),
           Spacer(), // Add a spacer to push the button to the bottom
